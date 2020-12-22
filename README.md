@@ -1,77 +1,47 @@
-# From The Underground
+# Ripple Automata
 
-![Gif](https://github.com/tknoepff/from-the-underground/blob/master/gifs/gif-1.gif)
+![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/pattern.png)
 <br>
 <br>
 
 **_Description_**
 <br>
 
-From the Underground is a first-person infinite running game made in Unity, a three-dimensional game development environment. Players are vacillating from two emotional states while playing the game, flow and fear. The flow comes from mastering obstacles in cyberspace through running and jumping mechanics. The fear comes from the game's unseen enemy that's chasing the player, as contact with it will be game over. The game has a digital and cyberpunk aesthetic.
+Cellular automata are intricate graphical structures that come from mathematical rules. They have a rich history in the fields of computation since they demonstrate how complex phenomena can emerge from simple lines of code. This Processing program is embedded in that tradition and adds some variations to an already existing model of emergent code, Conway’s Game of Life.
 
-The mechanics rely on intuitive running and jumping controls combined with the nuances of the Unity physics engine like gravity and momentum. The graphics use post processing features built into the Unity engine such as bloom lighting and glow effects. When the enemy approaches, graphical distortions begin to obscure the screen as color channels become skewed and glitch.
+The rules are simple. A pixel, or cell, stays on when it has 2-3 other cells around it and turns off when there are less than 2 or more than 3 cells around it. The variants added to these rules were made to allow for the automata to stay active for extended periods of time and to be transformed into a visual installation. The age of each cell is tracked and represented by the intensity of its brightness. Once a cell lives for 100 iteration cycles, it dies and divides into five surrounding cells.
 
 
 ## Software Used
-- [Unity LTS 2018.4](https://unity.com/)
-
-
-## Assembly
-
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/cap-1.png)
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/cap-2.png)
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/cap-3.png)
-
+- [Processing](https://processing.org/)
 
 
 ## Code Snippets
 
-**_Code for the player behavior class, made using the Unity Vector() function_**
+**_The rules for Conway’s Game of Life in code form_**
 
-```c
-void Start() {
-  rb = GetComponent Rigidbody();
-  enemy = GameObject.Find("Enemy");
-  cam = GameObject.Find("Main Camera");
-  end_play = GameObject.Find("Near End");
-  curr_speed = 100;
-  gravity = -1000;
-  Jump_force = 4500;
+```javascript
+if (current[x][y] == false && (neighbors(x,y) == 3)) {
+  next[x][y] = true;
+
+} else if (current[x][y] == true && (neighbors(x,y) < 2 || neighbors(x,y) > 3 )) {
+  next[x][y] = false;
+
+} else {
+  next[x][y] = current[x][y];
 }
-
-
-void FixedUpdate() {
-  float horizontal = Input.GetAxis("Horizontal");
-  float vertical = Input.GetAxis("Vertical");
-  Vector3 ground_motion_vector = new Vector3(horizontal, 0, vertical);
-  transform.Translate(ground_motion_vector, Space.Self);
-
-  if (Input.GetAxis("Jump") > 0 && is_grounded) {
-    jump_vector = new Vector3(0, jump_force, 0);
-    rb.AddForce(jump_vector);
-  }
-
-  if (rb.velocity.y < 5 && !is_grounded) {
-    rb.AddForce(new Vector3(0, gravity, 0));
-  }
-}
-
 ```
 
 
 ## Demo
 
-Click [here](https://github.com/tknoepff/from-the-underground/tree/master/videos) for video demos
-
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/gameplay-6.png)
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/gameplay-1.png)
-![Img](https://github.com/tknoepff/from-the-underground/blob/master/images/gameplay-4.png)
-
-
+![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/normal-growth.png)
+![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/ameoba-growth.png)
 
 
 ## Credits
+
 **Creator** • Thomas Knoepffler <br>
-**Advisor** • Alexandros Lotsos <br>
+**Advisor** • Alex Nathanson <br>
 **Program** • Integrated Digital Media, NYU <br>
-**Semester** • Summer 2019
+**Semester** • Fall 2019
