@@ -1,6 +1,6 @@
 # Ripple Automata
 
-![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/pattern.png)
+![Img](https://github.com/synhaptic/ripple-automata/blob/master/images/pattern.png)
 <br>
 <br>
 
@@ -31,8 +31,8 @@ if (current[x][y] == false && (neighbors(x,y) == 3)) {
 
 ## Demo
 
-![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/normal-growth.png)
-![Img](https://github.com/tknoepff/ripple-automata/blob/master/images/ameoba-growth.png)
+![Img](https://github.com/synhaptic/ripple-automata/blob/master/images/normal-growth.png)
+![Img](https://github.com/synhaptic/ripple-automata/blob/master/images/ameoba-growth.png)
 
 
 ## Credits
